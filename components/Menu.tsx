@@ -35,18 +35,18 @@ export default function Menu() {
       </div>
 
       {/* Tabs */}
-      <div className="flex flex-wrap mb-12 gap-3 justify-center w-full">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 mb-12 w-full max-w-6xl mx-auto">
         {menuCategories.map((category) => (
           <button
             key={category.id}
             onClick={() => setActiveCategory(category.id)}
-            className={`whitespace-nowrap px-6 py-3 rounded-full font-label-md transition-all snap-start ${
+            className={`w-full px-3 py-3 rounded-xl font-label-md transition-all flex items-center justify-center text-center ${
               activeCategory === category.id
-                ? "bg-primary text-on-primary shadow-lg shadow-primary/20 scale-105"
-                : "bg-surface-container-high text-on-surface hover:bg-surface-variant hover:text-primary"
+                ? "bg-primary text-on-primary shadow-lg shadow-primary/20 ring-1 ring-primary scale-[1.02]"
+                : "bg-surface-container-high text-on-surface/80 border border-primary/10 hover:bg-surface-variant hover:text-primary hover:border-primary/30"
             }`}
           >
-            {category.title}
+            <span className="line-clamp-2 leading-tight">{category.title}</span>
           </button>
         ))}
       </div>

@@ -6,12 +6,14 @@ export type CartItem = {
   name: string;
   price: number;
   quantity: number;
+  note?: string;
 };
 
 type CartContextType = {
   cart: CartItem[];
   addToCart: (name: string, price: number) => void;
   removeFromCart: (index: number) => void;
+  updateCartItemNote: (index: number, note: string) => void;
   isCartOpen: boolean;
   toggleCart: () => void;
   openCart: () => void;
@@ -47,13 +49,19 @@ export function CartProvider({ children }: { children: ReactNode }) {
     setCart((prev) => prev.filter((_, i) => i !== index));
   };
 
+  const updateCartItemNote = (index: number, note: string) => {
+    setCart((prev) =>
+      prev.map((item, i) => (i === index ? { ...item, note } : item))
+    );
+  };
+
   const toggleCart = () => setIsCartOpen(!isCartOpen);
   const openCart = () => setIsCartOpen(true);
   const closeCart = () => setIsCartOpen(false);
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, isCartOpen, toggleCart, openCart, closeCart, isMenuVisible, showMenu, hideMenu }}
+      value={{ cart, addToCart, removeFromCart, updateCartItemNote, isCartOpen, toggleCart, openCart, closeCart, isMenuVisible, showMenu, hideMenu }}
     >
       {children}
     </CartContext.Provider>

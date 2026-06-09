@@ -4,11 +4,14 @@ import { useCart } from "./CartContext";
 import { useEffect, useState } from "react";
 
 export default function CartDrawer() {
-  const { cart, removeFromCart, isCartOpen, closeCart } = useCart();
+  const { cart, removeFromCart, updateCartItemNote, isCartOpen, closeCart } = useCart();
   
   const totalCost = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const waNumber = "584122837825"; // Real WhatsApp number
   const [isDelivery, setIsDelivery] = useState(false);
+  
+  const deliveryFee = isDelivery ? 2 : 0;
+  const finalTotal = totalCost + deliveryFee;
 
   // Prevent overlap by pushing the body content
   useEffect(() => {
@@ -37,8 +40,15 @@ export default function CartDrawer() {
         message += `🔸 ${item.quantity}x ${item.name} ($${(
           item.price * item.quantity
         ).toFixed(2)})\n`;
+        if (item.note && item.note.trim() !== "") {
+          message += `   📝 Nota: ${item.note.trim()}\n`;
+        }
       });
-      message += `\n💵 *Total a pagar: $${totalCost.toFixed(2)}*\n\n`;
+      
+      if (isDelivery) {
+        message += `\n🛵 Costo de Delivery: $2.00`;
+      }
+      message += `\n\n💵 *Total a pagar: $${finalTotal.toFixed(2)}*\n\n`;
       message += "Quedo atento a las indicaciones de pago y envío. ¡Gracias!";
 
       const encodedMsg = encodeURIComponent(message);
@@ -50,8 +60,14 @@ export default function CartDrawer() {
 
   return (
     <>
+      {/* Mobile Backdrop */}
+      <div 
+        className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 sm:hidden animate-in fade-in"
+        onClick={closeCart}
+      />
+
       {/* Drawer */}
-      <div className="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-surface-container-low border-l border-primary/20 shadow-2xl z-50 flex flex-col transform transition-transform animate-in slide-in-from-right">
+      <div className="fixed top-0 right-0 h-full w-[85vw] max-w-[400px] sm:w-[400px] bg-surface-container-low border-l border-primary/20 shadow-2xl z-50 flex flex-col transform transition-transform animate-in slide-in-from-right">
         {/* Header */}
         <div className="px-6 py-4 border-b border-primary/10 flex justify-between items-center bg-transparent">
           <h2 className="font-headline-md text-on-surface flex items-center gap-2">
@@ -87,30 +103,39 @@ export default function CartDrawer() {
               {cart.map((item, index) => (
                 <li
                   key={index}
-                  className="flex justify-between items-center bg-surface-container p-3 rounded-lg border border-primary/10 shadow-sm"
+                  className="flex flex-col bg-surface-container p-3 rounded-lg border border-primary/10 shadow-sm"
                 >
-                  <div className="flex-1">
-                    <h4 className="font-label-md text-on-surface">
-                      {item.name}
-                    </h4>
-                    <div className="text-on-surface/70 font-body-md text-sm mt-1">
-                      ${item.price.toFixed(2)} x {item.quantity}
+                  <div className="flex justify-between items-center w-full">
+                    <div className="flex-1">
+                      <h4 className="font-label-md text-on-surface">
+                        {item.name}
+                      </h4>
+                      <div className="text-on-surface/70 font-body-md text-sm mt-1">
+                        ${item.price.toFixed(2)} x {item.quantity}
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <span className="font-label-md text-primary font-bold">
+                        ${(item.price * item.quantity).toFixed(2)}
+                      </span>
+                      <button
+                        onClick={() => removeFromCart(index)}
+                        className="text-on-surface/50 hover:text-error transition-colors p-1 rounded-full hover:bg-error/10 focus:outline-none"
+                        aria-label="Eliminar"
+                      >
+                        <span className="material-symbols-outlined text-[18px]">
+                          delete
+                        </span>
+                      </button>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <span className="font-label-md text-primary font-bold">
-                      ${(item.price * item.quantity).toFixed(2)}
-                    </span>
-                    <button
-                      onClick={() => removeFromCart(index)}
-                      className="text-on-surface/50 hover:text-error transition-colors p-1 rounded-full hover:bg-error/10 focus:outline-none"
-                      aria-label="Eliminar"
-                    >
-                      <span className="material-symbols-outlined text-[18px]">
-                        delete
-                      </span>
-                    </button>
-                  </div>
+                  <textarea
+                    value={item.note || ""}
+                    onChange={(e) => updateCartItemNote(index, e.target.value)}
+                    placeholder="¿Deseas añadir o quitar algo a este producto?"
+                    className="mt-3 w-full p-2 text-sm bg-surface-container-low border border-primary/20 rounded-md focus:outline-none focus:border-primary/50 text-on-surface resize-none placeholder:text-on-surface/40 transition-colors"
+                    rows={2}
+                  />
                 </li>
               ))}
             </ul>
@@ -144,10 +169,19 @@ export default function CartDrawer() {
             </button>
           </div>
 
-          <div className="flex justify-between items-center mb-6">
+          {isDelivery && (
+            <div className="flex justify-between items-center mb-2">
+              <span className="font-body-md text-on-surface/70">Delivery</span>
+              <span className="font-label-md text-on-surface/70">
+                $2.00
+              </span>
+            </div>
+          )}
+
+          <div className="flex justify-between items-center mb-6 mt-2 pt-2 border-t border-primary/10">
             <span className="font-body-lg text-on-surface/80">Total</span>
             <span className="font-headline-md text-primary">
-              ${totalCost.toFixed(2)}
+              ${finalTotal.toFixed(2)}
             </span>
           </div>
           <button

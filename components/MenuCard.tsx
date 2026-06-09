@@ -24,7 +24,10 @@ export default function MenuCard({
   const handleAdd = () => {
     addToCart(name, price);
     setAdded(true);
-    openCart();
+    // Only auto-open the cart on larger screens to avoid interrupting mobile browsing
+    if (typeof window !== "undefined" && window.innerWidth >= 640) {
+      openCart();
+    }
     setTimeout(() => setAdded(false), 2000);
   };
 
