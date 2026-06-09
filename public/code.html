@@ -1,0 +1,523 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Pizzería Napoli - Tradición Italiana</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "on-primary-container": "#ff907f",
+                "on-background": "#1A1A1A",
+                "on-surface": "#1A1A1A",
+                "background": "#F5F5DC",
+                "primary-fixed": "#ffdad4",
+                "inverse-primary": "#b52619",
+                "tertiary-fixed-dim": "#c8c8b0",
+                "inverse-on-surface": "#313030",
+                "on-secondary": "#1A1A1A",
+                "surface-container-highest": "#353535",
+                "outline": "#aa8984",
+                "inverse-surface": "#e5e2e1",
+                "secondary-fixed": "#ffe08f",
+                "outline-variant": "#5a403c",
+                "primary-container": "#8b0000",
+                "surface-container": "#20201f",
+                "on-error-container": "#ffdad6",
+                "primary-fixed-dim": "#ffb4a8",
+                "on-tertiary-fixed-variant": "#474836",
+                "on-surface-variant": "#e3beb8",
+                "on-primary": "#ffffff",
+                "error-container": "#93000a",
+                "tertiary-container": "#424432",
+                "on-secondary-fixed-variant": "#584400",
+                "surface-tint": "#ffb4a8",
+                "tertiary": "#c8c8b0",
+                "secondary-fixed-dim": "#f1c019",
+                "primary": "#8B0000",
+                "on-tertiary": "#303221",
+                "on-primary-fixed": "#410000",
+                "surface": "#F5F5DC",
+                "surface-container-lowest": "#0e0e0e",
+                "error": "#ffb4ab",
+                "on-error": "#690005",
+                "on-tertiary-container": "#b0b19a",
+                "secondary": "#E5B500",
+                "tertiary-fixed": "#e4e4cc",
+                "on-tertiary-fixed": "#1b1d0e",
+                "on-primary-fixed-variant": "#920703",
+                "surface-container-high": "#2a2a2a",
+                "surface-dim": "#131313",
+                "on-secondary-container": "#1A1A1A",
+                "secondary-container": "#E5B500",
+                "on-secondary-fixed": "#241a00",
+                "surface-container-low": "#1c1b1b",
+                "surface-variant": "#F5F5DC",
+                "surface-bright": "#393939"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "margin-desktop": "64px",
+                "xs": "4px",
+                "xl": "80px",
+                "lg": "48px",
+                "gutter": "24px",
+                "base": "8px",
+                "md": "24px",
+                "sm": "12px",
+                "margin-mobile": "16px"
+        },
+        "fontFamily": {
+                "label-md": [
+                        "Work Sans"
+                ],
+                "headline-xl": [
+                        "EB Garamond"
+                ],
+                "headline-lg-mobile": [
+                        "EB Garamond"
+                ],
+                "body-md": [
+                        "Work Sans"
+                ],
+                "label-sm": [
+                        "Work Sans"
+                ],
+                "body-lg": [
+                        "Work Sans"
+                ],
+                "headline-lg": [
+                        "EB Garamond"
+                ],
+                "headline-md": [
+                        "EB Garamond"
+                ]
+        },
+        "fontSize": {
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-xl": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "28px",
+                        {
+                                "lineHeight": "34px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "fontWeight": "500"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "500"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        .glass-nav {
+            background-color: rgba(245, 245, 220, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .hero-gradient {
+            background: linear-gradient(180deg, rgba(26, 26, 26, 0.2) 0%, rgba(26, 26, 26, 0.8) 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 10px 30px -10px rgba(26, 26, 26, 0.08);
+        }
+        
+        /* Smooth transitions */
+        .slide-in-right {
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .slide-in-right.open {
+            transform: translateX(0);
+        }
+        .fade-in {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .fade-in.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden" style="background-color: rgb(242, 235, 217);">
+<!-- TopNavBar -->
+<nav class="glass-nav border-b border-primary/10 shadow-sm w-full top-0 sticky z-40 transition-all duration-300">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-[1200px] mx-auto">
+<!-- Brand Logo -->
+<a class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary tracking-tight" href="#">
+                Pizzería Napoli
+            </a>
+<!-- Navigation Links (Desktop) -->
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1 transition-opacity hover:opacity-80" href="#menu">Menu</a>
+<a class="font-label-md text-label-md text-on-background/70 hover:text-primary transition-colors" href="#about">About</a>
+<a class="font-label-md text-label-md text-on-background/70 hover:text-primary transition-colors" href="#locations">Locations</a>
+<a class="font-label-md text-label-md text-on-background/70 hover:text-primary transition-colors" href="#contact">Contact</a>
+</div>
+<!-- Actions -->
+<div class="flex items-center space-x-4">
+<button aria-label="Open Cart" class="relative p-2 text-on-surface hover:text-primary transition-colors group" id="cart-btn">
+<span class="material-symbols-outlined text-[28px] group-hover:scale-110 transition-transform">shopping_cart</span>
+<span class="absolute top-0 right-0 bg-secondary-container text-on-secondary-container font-label-sm text-[10px] w-5 h-5 flex items-center justify-center rounded-full opacity-0 transform scale-0 transition-all duration-300" id="cart-badge">0</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative w-full h-[870px] min-h-[600px] flex items-center justify-center overflow-hidden">
+<!-- Background Image -->
+<div class="absolute inset-0 w-full h-full bg-cover bg-center" data-alt="A high-quality, professional food photography shot of an authentic artisanal wood-fired Neapolitan pizza being pulled from a glowing traditional brick oven. The scene is illuminated by the warm, inviting amber light of the fire, casting soft, rich shadows that highlight the blistered crust, melted fresh mozzarella, and vibrant green basil. The aesthetic perfectly matches an upscale Italian pizzeria with a deep red and warm gold color palette, evoking tradition, warmth, and culinary excellence." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDVD7nFAtmr3pksto7bdgwJCeY-CKPr7sbY8sIDfd2_8vZYwlbCPRTQ6JKIgeqOhFTZORdNW1XqebeXHdHEoXMXfSLwpCnB3hkznGWNiA99p4487MKGfXh8TB6gy36EMNxOA6YPcNUrINi2EdjKPG0mP3OSjQpLLWGYTPNlYa3G6JWOwIVf8_vqmKYH34rbk6E_Ytr967PBpMQ0rNQ-ukY3OMJmxKOIX2OCJoZ488g0JXhxiMZqHUnlHI-gVfkv2mtNZ1wRPCYKsqw');"></div>
+<!-- Gradient Overlay -->
+<div class="absolute inset-0 hero-gradient"></div>
+<!-- Content -->
+<div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-[800px] mt-12">
+<h1 class="font-headline-xl text-[40px] leading-[48px] md:text-headline-xl text-on-primary mb-6 drop-shadow-lg font-bold">Tradición Italiana en Cada Bocado</h1>
+<p class="font-body-lg text-body-lg text-on-primary/90 mb-10 max-w-[600px] mx-auto drop-shadow-md">Nuestra masa fermenta lentamente por 48 horas, cubierta con los ingredientes más frescos y horneada a la perfección en nuestro horno de leña tradicional.</p>
+<a class="inline-flex items-center justify-center bg-secondary-container hover:bg-secondary text-on-secondary-container font-label-md text-label-md px-8 py-4 rounded-full transition-all hover:-translate-y-1 hover:shadow-lg" href="#menu">
+                Ver Nuestro Menú
+            </a>
+</div>
+</header>
+<!-- Main Content -->
+<main class="w-full max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-xl">
+<!-- Menu Section -->
+<section class="scroll-mt-32" id="menu">
+<div class="text-center mb-16">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-[0.2em] mb-2 block">Cucina Autentica</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background">Pizzas Artesanales</h2>
+<div class="w-16 h-1 bg-primary mx-auto mt-6 rounded-full"></div>
+</div>
+<!-- Bento Grid Menu -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Item 1 -->
+<article class="bg-surface rounded-xl overflow-hidden card-shadow border border-primary/10 transition-transform hover:-translate-y-2 group">
+<div class="h-64 w-full bg-surface-container-high relative overflow-hidden">
+<img alt="Pizza Margherita" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A top-down, high-resolution food photograph of a classic authentic Neapolitan Margherita pizza resting on a rustic wooden board. The pizza features a perfectly charred, blistered crust, rich red San Marzano tomato sauce, milky white pools of fresh mozzarella cheese, and vibrant green fresh basil leaves. The lighting is bright yet soft, casting warm, subtle shadows that emphasize the organic textures of the food and the warm, artisanal aesthetic of a premium Italian restaurant." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDypdKc_mtDq6nOoPeC32MpfqrusijmJ9nSGzDuAZzHoHKipl_holL_8QX_zH8_Z8TsqPP6MlrT6UniimmvSUTZIMAdNqE_uV7MXuFzhJ1QMesBTv4wn0OC8ErHpqlxCh16HczCEOJ6KEujloROh9DS-G4eXOFyERrDPglhM3AUiPynSdVIeldRBOUDxCPiExI4LKws9fvC8VO7DEB9w_fhGN0Qbt4Wl7lgmcEUVbYgg4VsrcE0dPhXcHhqxIxwpCJkNbesxY5cbs4">
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-on-background">Margherita</h3>
+<span class="font-label-md text-label-md text-primary mt-1">$14.00</span>
+</div>
+<p class="font-body-md text-body-md text-on-background/70 mb-6 line-clamp-2">Salsa de tomate San Marzano, mozzarella fior di latte, albahaca fresca, aceite de oliva virgen extra.</p>
+<div class="flex items-center justify-between">
+<div class="flex gap-2">
+<span class="px-2 py-1 rounded-full border border-primary text-primary font-label-sm text-[10px] uppercase">Vegetariano</span>
+</div>
+<button class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center hover:scale-110 transition-transform focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" onclick="addToCart('Margherita', 14.00)">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Item 2 -->
+<article class="bg-surface rounded-xl overflow-hidden card-shadow border border-primary/10 transition-transform hover:-translate-y-2 group">
+<div class="h-64 w-full bg-surface-container-high relative overflow-hidden">
+<img alt="Pizza Diavola" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A close-up, premium food photography shot of a spicy Pizza Diavola placed on a dark slate surface. The pizza boasts a rustic, wood-fired crust adorned with spicy red salami (pepperoni), melted mozzarella cheese, and scattered chili flakes. The lighting is dramatic and warm, highlighting the glistening oils of the cured meat and the deep red and rich amber tones of the dish. The mood is upscale, artisanal, and highly appetizing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVsK_UzmGQoPweDIdfDk58Gq79xqd9-f5dQGRmqfx_OtjKUkcwe3hGwd4lZf1SFvVi-SVkXCoQdSybhvQ5oZkvIEv9dq3wDiCxW29p45jiGVaSJ0MY05EWbwHxudXQUnKVUQvUCgrq4g9RXWXUT5fd1gLGbXyRNwypo-2FkO8R6vreqdnq6k76Phfa-Achyd7CVPgtvxv9heCN-3eRzt-rzF1cH8dxiLN-8nrhGehC1j0wv5-QopKFo_GxYa5t_S3cs4FrXYK_ZB8">
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-on-background">Diavola</h3>
+<span class="font-label-md text-label-md text-primary mt-1">$16.50</span>
+</div>
+<p class="font-body-md text-body-md text-on-background/70 mb-6 line-clamp-2">Salsa de tomate, mozzarella, salame picante italiano, hojuelas de chile, miel picante opcional.</p>
+<div class="flex items-center justify-between">
+<div class="flex gap-2">
+<span class="px-2 py-1 rounded-full border border-primary text-primary font-label-sm text-[10px] uppercase flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">local_fire_department</span> Picante</span>
+</div>
+<button class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center hover:scale-110 transition-transform focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" onclick="addToCart('Diavola', 16.50)">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Item 3 -->
+<article class="bg-surface rounded-xl overflow-hidden card-shadow border border-primary/10 transition-transform hover:-translate-y-2 group">
+<div class="h-64 w-full bg-surface-container-high relative overflow-hidden">
+<img alt="Pizza Quattro Formaggi" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="An elegant, high-end food photograph of a Quattro Formaggi (Four Cheese) pizza straight from the wood-fired oven. The pizza lacks tomato sauce (pizza bianca) and is generously covered in a bubbling, golden-brown mix of melted gorgonzola, mozzarella, parmesan, and provolone cheeses. The setting features a rustic light wood table dusted lightly with flour. The soft, ambient restaurant lighting enhances the rich cream and bone colors of the cheese, perfectly aligning with a sophisticated Italian dining aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIfvW4NMIXxNblpq72C_RdI0iKGeN14xvvUx2ufqTkUTUrNjbS_0DZOB48mxv-dz9ETqfEgd-xnZtGRGexFk1AKizynKXHZpB1MHqNRyVHlMzI4d7pbELzdwCPfFJpw-ff7-3ZUIWR0Dum5axxyuxZ4TRTaxILalf1fqzoURHAYVnsNXAfl22-EakaSS2ZsbRr3-EdCbTwGKXLUnbjdO36CneKqe7aOIuXNNiAUh1dFA-GTp-qfpA6DEuwg7mgSQl9RHrM6-h1Kds">
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-on-background">Quattro Formaggi</h3>
+<span class="font-label-md text-label-md text-primary mt-1">$17.00</span>
+</div>
+<p class="font-body-md text-body-md text-on-background/70 mb-6 line-clamp-2">Base blanca, mozzarella, gorgonzola dulce, parmigiano reggiano, provolone, pimienta negra.</p>
+<div class="flex items-center justify-between">
+<div class="flex gap-2"></div>
+<button class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center hover:scale-110 transition-transform focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" onclick="addToCart('Quattro Formaggi', 17.00)">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Experience Section (Asymmetric layout) -->
+<section class="mt-xl pt-16 border-t border-primary/10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-5 order-2 lg:order-1">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-[0.2em] mb-2 block">Nuestra Herencia</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background mb-6">El Arte de la Verdadera Pizza Napolitana</h2>
+<p class="font-body-md text-body-md text-on-background/80 mb-4">En Pizzería Napoli, no hacemos atajos. Nuestra masa se prepara diariamente utilizando solo harina Caputo 00 importada, agua purificada, sal marina y levadura fresca.</p>
+<p class="font-body-md text-body-md text-on-background/80 mb-8">Cada pizza se hornea a 450°C durante exactamente 90 segundos en nuestro horno de piedra artesanal, resultando en ese característico borde inflado y centro tierno.</p>
+<a class="inline-flex items-center font-label-md text-label-md text-primary hover:opacity-80 transition-opacity group" href="#about">
+                        Descubre nuestra historia 
+                        <span class="material-symbols-outlined ml-2 transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="lg:col-span-7 order-1 lg:order-2 relative">
+<div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-lg relative z-10">
+<img alt="Horno de leña" class="w-full h-full object-cover" data-alt="A cinematic, beautifully composed shot of a traditional, domed brick wood-fired pizza oven roaring with a bright, warm amber fire inside. A skilled pizzaiolo, wearing a crisp white apron, is using a long wooden peel to expertly rotate a pizza amidst the flames. The scene is illuminated by the warm, dramatic light of the fire against a subtly shadowed, rustic kitchen background. The imagery embodies artisanal craftsmanship, Italian tradition, and a premium culinary experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYrnyYH5fLd1Q6sH3fwHm1WmLghHTJb4U_IkR049CIFty-dm_UAlxcqfuHAuzWKJmZAey8rcdm5tdB3a3FhxWiqS32mHo-i3B2PjEFYExoit9eYZzvMpekj1gUws8fYFNm29ZGZF1yqJaiUs-irdZ-OD8qGRo1R2Ir1QFdcjzcWAsSloAXMM_8jjyKYwkDHTt6QQqsY2K5iSMHJGqNsaWAPsBLJsT9Fux5MZ8FMH4sZk8ji4GuAiHe1-Wnpn97n1nVAy_nvqr-d6U">
+</div>
+<!-- Decorative element -->
+<div class="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/5 rounded-full blur-2xl z-0"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface w-full py-xl px-margin-mobile md:px-margin-desktop mt-auto border-t border-primary/10">
+<div class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="text-center md:text-left">
+<a class="font-headline-md text-headline-md text-primary mb-2 block" href="#">Pizzería Napoli</a>
+<p class="font-label-sm text-label-sm text-on-background/70">© 2024 Pizzería Napoli. Authentic Wood-Fired Heritage.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-label-sm text-label-sm text-on-background/70 hover:text-primary transition-colors" href="#">Instagram</a>
+<a class="font-label-sm text-label-sm text-on-background/70 hover:text-primary transition-colors" href="#">Facebook</a>
+<a class="font-label-sm text-label-sm text-on-background/70 hover:text-primary transition-colors" href="#">WhatsApp</a>
+<a class="font-label-sm text-label-sm text-on-background/70 hover:text-primary transition-colors" href="#">Privacy Policy</a>
+</div>
+</div>
+</footer>
+<!-- Cart Slide-over Overlay -->
+<div class="fixed inset-0 bg-on-background/40 backdrop-blur-sm z-50 fade-in" id="cart-overlay"></div>
+<!-- Cart Slide-over Panel -->
+<div class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-surface/95 backdrop-blur-md shadow-2xl z-50 slide-in-right flex flex-col" id="cart-panel">
+<!-- Header -->
+<div class="px-6 py-4 border-b border-primary/10 flex justify-between items-center bg-transparent">
+<h2 class="font-headline-md text-headline-md text-on-background flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">shopping_cart</span>
+                Tu Pedido
+            </h2>
+<button class="p-2 text-on-background/70 hover:bg-primary/10 rounded-full transition-colors" id="close-cart">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Cart Items Area -->
+<div class="flex-1 overflow-y-auto p-6 relative">
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center p-6 text-on-background/70" id="empty-cart-msg">
+<span class="material-symbols-outlined text-[48px] opacity-20 mb-4">local_pizza</span>
+<p class="font-body-md text-on-background">Tu carrito está vacío.</p>
+<p class="font-label-sm mt-2 opacity-70">Agrega algunas deliciosas pizzas para comenzar.</p>
+</div>
+<ul class="space-y-4" id="cart-items-list">
+<!-- Items injected via JS -->
+</ul>
+</div>
+<!-- Footer / Checkout Area -->
+<div class="border-t border-primary/10 bg-transparent p-6">
+<div class="flex justify-between items-center mb-6">
+<span class="font-body-lg text-body-lg text-on-background/80">Total</span>
+<span class="font-headline-md text-headline-md text-primary" id="cart-total">$0.00</span>
+</div>
+<button class="w-full bg-[#E5B500] hover:bg-[#D4A700] disabled:bg-surface-variant disabled:text-on-background/50 disabled:cursor-not-allowed text-on-secondary-container font-label-md text-label-md py-4 rounded-lg flex items-center justify-center gap-2 transition-colors shadow-md" disabled="" id="checkout-btn">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">chat</span>
+                Pedir por WhatsApp
+            </button>
+</div>
+</div>
+<!-- JavaScript for Interactivity -->
+<script>
+        // State
+        let cart = [];
+        const waNumber = "1234567890"; // Dummy WhatsApp number
+
+        // DOM Elements
+        const cartBtn = document.getElementById('cart-btn');
+        const cartBadge = document.getElementById('cart-badge');
+        const cartOverlay = document.getElementById('cart-overlay');
+        const cartPanel = document.getElementById('cart-panel');
+        const closeCartBtn = document.getElementById('close-cart');
+        const cartItemsList = document.getElementById('cart-items-list');
+        const emptyCartMsg = document.getElementById('empty-cart-msg');
+        const cartTotalEl = document.getElementById('cart-total');
+        const checkoutBtn = document.getElementById('checkout-btn');
+
+        // Toggle Cart
+        function toggleCart() {
+            const isOpen = cartPanel.classList.contains('open');
+            if (isOpen) {
+                cartPanel.classList.remove('open');
+                cartOverlay.classList.remove('open');
+                document.body.style.overflow = '';
+            } else {
+                cartPanel.classList.add('open');
+                cartOverlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        cartBtn.addEventListener('click', toggleCart);
+        closeCartBtn.addEventListener('click', toggleCart);
+        cartOverlay.addEventListener('click', toggleCart);
+
+        // Add to Cart Logic
+        window.addToCart = function(name, price) {
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name, price, quantity: 1 });
+            }
+            
+            // Visual feedback on button (micro-interaction)
+            const btn = event.currentTarget;
+            const originalIcon = btn.innerHTML;
+            btn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check</span>';
+            btn.classList.add('bg-primary', 'text-on-primary');
+            btn.classList.remove('bg-secondary-container', 'text-on-secondary-container');
+            
+            setTimeout(() => {
+                btn.innerHTML = originalIcon;
+                btn.classList.remove('bg-primary', 'text-on-primary');
+                btn.classList.add('bg-secondary-container', 'text-on-secondary-container');
+            }, 1000);
+
+            updateCartUI();
+            
+            // Auto open cart on first add (optional, removing for subtler UX, maybe just pop the badge)
+            cartBtn.classList.add('animate-bounce');
+            setTimeout(() => cartBtn.classList.remove('animate-bounce'), 1000);
+        };
+
+        // Remove from cart
+        window.removeFromCart = function(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        // Update UI
+        function updateCartUI() {
+            // Update Badge
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartBadge.textContent = totalItems;
+            
+            if (totalItems > 0) {
+                cartBadge.classList.remove('opacity-0', 'scale-0');
+                cartBadge.classList.add('opacity-100', 'scale-100');
+                emptyCartMsg.style.display = 'none';
+                checkoutBtn.disabled = false;
+            } else {
+                cartBadge.classList.add('opacity-0', 'scale-0');
+                cartBadge.classList.remove('opacity-100', 'scale-100');
+                emptyCartMsg.style.display = 'flex';
+                checkoutBtn.disabled = true;
+            }
+
+            // Render Items
+            cartItemsList.innerHTML = '';
+            let totalCost = 0;
+
+            cart.forEach((item, index) => {
+                totalCost += item.price * item.quantity;
+                const li = document.createElement('li');
+                li.className = 'flex justify-between items-center bg-surface p-3 rounded-lg border border-primary/10';
+                li.innerHTML = `
+                    <div class="flex-1">
+                        <h4 class="font-label-md text-on-background">${item.name}</h4>
+                        <div class="text-on-background/70 font-body-md text-sm mt-1">$${item.price.toFixed(2)} x ${item.quantity}</div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="font-label-md text-primary font-bold">$${(item.price * item.quantity).toFixed(2)}</span>
+                        <button onclick="removeFromCart(${index})" class="text-on-background/50 hover:text-primary transition-colors p-1" aria-label="Eliminar">
+                            <span class="material-symbols-outlined text-[18px]">delete</span>
+                        </button>
+                    </div>
+                `;
+                cartItemsList.appendChild(li);
+            });
+
+            // Update Total
+            cartTotalEl.textContent = `$${totalCost.toFixed(2)}`;
+            
+            // Update WhatsApp Link
+            if (cart.length > 0) {
+                let message = "Hola Pizzería Napoli! Me gustaría pedir:\n\n";
+                cart.forEach(item => {
+                    message += `- ${item.quantity}x ${item.name} ($${(item.price * item.quantity).toFixed(2)})\n`;
+                });
+                message += `\n*Total: $${totalCost.toFixed(2)}*`;
+                
+                const encodedMsg = encodeURIComponent(message);
+                checkoutBtn.onclick = () => {
+                    window.open(`https://wa.me/${waNumber}?text=${encodedMsg}`, '_blank');
+                };
+            }
+        }
+    </script>
+
+
+</body></html>
